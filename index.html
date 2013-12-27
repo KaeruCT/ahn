@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Viewer of things</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="lib/angular/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body >
+    <div ng-app="newsListApp">
+        <h1>Hacker News</h1>
+        <div ng-controller="NewsListCtrl">
+            <ul class="n-list">
+                <li ng-repeat="n in news">
+                    <a target="_blank" href="{{n.url}} class="n-title">{{n.title}}</a>
+
+                    <div class="n-info">
+                        <a target="_blank" href="https://news.ycombinator.com/item?id={{n.id}}" class="n-comments">
+                            {{n.commentCount}}
+                            <span ng-pluralize
+                                  count="n.commentCount"
+                                  when="{'1': 'comment', 'other': 'comments'}"></span>
+                        </a>
+                        <span class="n-points">{{n.points}}pts</span>
+                        <a target="_blank" href="https://news.ycombinator.com/user?id={{n.postedBy}}" class="n-by">{{n.postedBy}}</a>
+                        <span class="n-ago">{{n.postedAgo}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+$text_color: #e0e0e0;
+$dtext_color: darken($text_color, 30%);
+$link_color: #6ad;
+$lbg_color: darken(desaturate($link_color, 50%), 55%);
+$side_pad: 40px;
+
+body {
+    background: $lbg_color;
+    font-family: 'Liberation Mono', 'Ubuntu Mono', 'Courier New', monospace;
+    color: $text_color;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: $link_color;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:visited {
+        color: $link_color;
+    }
+
+    &:hover {
+        color: lighten($link_color, 10%);
+        text-decoration: underline;
+    }
+    &:active {
+        color: darken($link_color, 10%);
+    }
+}
+
+h1 {
+    padding: 0 $side_pad;
+    margin: 0;
+}
+
+.n-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 10px $side_pad;
+
+        &:nth-child(odd) {
+            background: darken($lbg_color, 1%);
+        }
+
+        &:nth-child(even) {
+            background: lighten($lbg_color, 1%);
+        }
+
+        .n-info {
+            text-decoration: none;
+            color: $dtext_color;
+
+            a {
+                color: $dtext_color;
+
+                &:visited {
+                    color: $dtext_color;
+                }
+
+                &:hover {
+                    color: lighten($dtext_color, 10%);
+                    text-decoration: underline;
+                }
+                &:active {
+                    color: darken($dtext_color, 10%);
+                }
+            }
+        }
+        .n-comments {
+            float: right;
+            height: 2em;
+            line-height: 2em;
+        }
+    }
+}
