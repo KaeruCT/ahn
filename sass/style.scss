@@ -3,6 +3,15 @@ $dtext_color: darken($text_color, 30%);
 $link_color: #6ad;
 $lbg_color: darken(desaturate($link_color, 50%), 55%);
 $side_pad: 40px;
+$break_small: 640px;
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
 
 body {
     background: $lbg_color;
@@ -34,6 +43,16 @@ a {
 h1 {
     padding: 0 $side_pad;
     margin: 0;
+
+    @media screen and (max-width: $break_small) {
+        padding: 0 $side_pad/4;
+        text-align: center;
+    }
+}
+
+.n-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .n-list {
@@ -44,6 +63,10 @@ h1 {
     li {
         padding: 10px $side_pad;
 
+        @media screen and (max-width: $break_small) {
+            padding: 10px $side_pad/4;
+        }
+
         &:nth-child(odd) {
             background: darken($lbg_color, 1%);
         }
@@ -53,8 +76,10 @@ h1 {
         }
 
         .n-info {
+            @include clearfix;
             text-decoration: none;
             color: $dtext_color;
+            font-size: .8em;
 
             a {
                 color: $dtext_color;
@@ -72,11 +97,11 @@ h1 {
                 }
             }
         }
+        .n-ago {
+            float: left;
+        }
         .n-comments {
             float: right;
-            height: 2em;
-            line-height: 2em;
-            margin-top: -1em;
         }
     }
 }

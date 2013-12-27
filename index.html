@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AngularJS Hacker News</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="lib/angular/angular.min.js"></script>
   <script src="js/controllers.js"></script>
 </head>
 <body >
-    <div ng-app="newsListApp">
+    <div class="n-container" ng-app="newsListApp">
         <h1>Hacker News</h1>
         <div ng-controller="NewsListCtrl">
             <ul class="n-list">
@@ -16,15 +17,17 @@
                     <a target="_blank" href="{{n.url}}" class="n-title">{{n.title}}</a>
 
                     <div class="n-info">
-                        <a target="_blank" href="https://news.ycombinator.com/item?id={{n.id}}" class="n-comments">
-                            {{n.commentCount}}
-                            <span ng-pluralize
-                                  count="n.commentCount"
-                                  when="{'1': 'comment', 'other': 'comments'}"></span>
-                        </a>
                         <span class="n-points">{{n.points}}pts</span>
                         <a target="_blank" href="https://news.ycombinator.com/user?id={{n.postedBy}}" class="n-by">{{n.postedBy}}</a>
-                        <span class="n-ago">{{n.postedAgo}}</span>
+                        <div>
+                            <span class="n-ago">{{n.postedAgo}}</span>
+                            <a target="_blank" href="https://news.ycombinator.com/item?id={{n.id}}" class="n-comments">
+                                {{n.commentCount}}
+                                <span ng-pluralize
+                                      count="n.commentCount"
+                                      when="{'1': 'comment', 'other': 'comments'}"></span>
+                            </a>
+                        </div>
                     </div>
                 </li>
             </ul>
