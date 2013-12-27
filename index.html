@@ -18,10 +18,10 @@
 
                     <div class="n-info">
                         <span class="n-points">{{n.points}}pts</span>
-                        <a target="_blank" href="https://news.ycombinator.com/user?id={{n.postedBy}}" class="n-by">{{n.postedBy}}</a>
+                        <a target="_blank" href="{{n.postedByUrl}}" class="n-by">{{n.postedBy}}</a>
                         <div>
                             <span class="n-ago">{{n.postedAgo}}</span>
-                            <a target="_blank" href="https://news.ycombinator.com/item?id={{n.id}}" class="n-comments">
+                            <a target="_blank" href="{{n.commentUrl}}" class="n-comments">
                                 {{n.commentCount}}
                                 <span ng-pluralize
                                       count="n.commentCount"
